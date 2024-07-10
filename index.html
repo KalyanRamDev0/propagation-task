@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+        <label for="pass">password</label>
+        <input type="text" id="pass">
+        <input type="submit" id="button">
+      </form>
+      <ol id="list1"></ol>
+      <script>
+        
+      let arr = [];
+      let ip1 = document.getElementById("name");
+      let ip2 = document.getElementById("pass");
+      let btn = document.getElementById("button");
+      let pa = document.getElementById("pa");
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        obj = { name: ip1.value, password: ip2.value };
+        arr.push(obj);
+        localStorage.setItem("Userdetails", JSON.stringify(obj));
+
+        let list2 = document.createElement("li");
+        list2.id = "list2";
+
+        list2.innerHTML = `name=${obj.name} and password=${obj.password}`;
+        document.getElementById("list1").appendChild(list2);
+      });
+    
+      </script>
+</body>
+</html>
